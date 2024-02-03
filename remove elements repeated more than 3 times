@@ -1,0 +1,24 @@
+let arr = [4,5,5,6,6,6,7,7,7,7,8,8,8,8,8];
+let obj = arr.reduce((acc,i) => {
+  if(acc.hasOwnProperty(i)) {
+    acc[i] +=1;
+  } else {
+    acc[i] = 1;
+  }
+  return acc
+  }, {}
+);
+console.log(obj);
+
+let newObj = Object.fromEntries(Object
+  .entries(obj)
+  .filter(n=> n[1] <=3)
+);
+console.log(newObj);
+let newArr = [];
+for (let key in newObj){
+if(newObj.hasOwnProperty(key)) {
+  newArr.push(+key);
+}
+}
+console.log(newArr);
